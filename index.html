@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<!-- Иконки для разных устройств -->
+	<link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/icon.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
+	<link rel="manifest" href="manifest.json">
+
+	<!-- Open Graph и социальные сети -->
+	<meta property="og:image" content="images/icon.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="512">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Полезные инструменты и советы для решения повседневных задач — бесплатно.">
+    <title>Умная Помощь</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Хедер -->
+	<header class="header">
+		<div class="container">
+			<div class="logo">Умная Помощь</div>
+			<nav class="nav">
+				<a href="index.html">Главная</a>
+				<a href="calculators.html">Калькуляторы</a>
+				<a href="advice/index.html">Советы</a>
+				<a href="about.html">О сайте</a>
+				<a href="contact.html">Контакты</a>
+			</nav>
+			<div class="header-actions">
+				<button class="theme-toggle" id="themeToggle">🌙</button>
+				<button class="feedback-btn" onclick="location.href='contact.html#feedback'">Обратная связь</button>
+			</div>
+		</div>
+	</header>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="container">
+            <h1>Полезные инструменты и советы — бесплатно</h1>
+            <p>Решайте бытовые задачи быстро: калькуляторы, шаблоны, лайфхаки</p>
+            <a href="#tools" class="btn-primary">Начать</a>
+        </div>
+    </section>
+
+    <!-- Популярные инструменты -->
+    <section id="tools" class="tools">
+        <div class="container">
+            <h2>Популярные инструменты</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="images/icons/calculator.svg" alt="Калькулятор коммуналки" width="48" height="48">
+                    <h3>Калькулятор коммуналки</h3>
+                    <p>Узнайте, сколько вы платите за ЖКХ ежемесячно</p>
+                    <a href="calculators.html#utility" class="btn-secondary">Использовать</a>
+                </div>
+                <div class="card">
+                    <img src="images/icons/resume.svg" alt="Шаблон резюме" width="48" height="48">
+                    <h3>Шаблон резюме</h3>
+                    <p>Профессиональный шаблон для устройства на работу</p>
+                    <a href="advice/index.html" class="btn-secondary">Использовать</a>
+                </div>
+                <div class="card">
+                    <img src="images/icons/budget.svg" alt="Планировщик бюджета" width="48" height="48">
+                    <h3>Планировщик бюджета</h3>
+                    <p>Контролируйте свои доходы и расходы</p>
+                    <a href="calculators.html#budget" class="btn-secondary">Использовать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Советы дня -->
+	<section class="tips">
+		<div class="container">
+			<h2>Советы дня</h2>
+			<div class="cards">
+				<a href="advice/zhkh-2025.html" class="tip-card">
+					<img src="images/icons/tip1.svg" alt="" width="32" height="32">
+					<span>Как сэкономить на ЖКХ</span>
+				</a>
+				<a href="advice/vacation-application.html" class="tip-card">
+					<img src="images/icons/tip2.svg" alt="" width="32" height="32">
+					<span>Как написать заявление</span>
+				</a>
+				<a href="advice/job-search.html" class="tip-card">
+					<img src="images/icons/tip3.svg" alt="" width="32" height="32">
+					<span>Как быстро найти работу</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Умная Помощь. Все советы — бесплатно.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="about.html">О сайте</a>
+                <a href="contact.html">Контакты</a>
+            </div>
+            <div class="social-icons">
+                <a href="#">ВКонтакте</a>
+                <a href="#">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+</body>
+</html>

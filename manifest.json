@@ -1,0 +1,16 @@
+{
+  "name": "Умная Помощь",
+  "short_name": "УмнаяПомощь",
+  "description": "Полезные инструменты и советы для решения повседневных задач",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#4A90E2",
+  "theme_color": "#4A90E2",
+  "icons": [
+    {
+      "src": "images/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

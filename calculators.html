@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<!-- Иконки для разных устройств -->
+	<link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/icon.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
+	<link rel="manifest" href="manifest.json">
+
+	<!-- Open Graph и социальные сети -->
+	<meta property="og:image" content="images/icon.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="512">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Полезные калькуляторы для решения бытовых задач — быстро и без регистрации.">
+    <title>Калькуляторы | Умная Помощь</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Хедер -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">Умная Помощь</div>
+            <nav class="nav">
+                <a href="index.html">Главная</a>
+                <a href="calculators.html">Калькуляторы</a>
+                <a href="advice/index.html">Советы</a>
+                <a href="about.html">О сайте</a>
+                <a href="contact.html">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+                <button class="feedback-btn" onclick="location.href='contact.html#feedback'">Обратная связь</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <h1>Полезные калькуляторы</h1>
+        <p>Всё, что нужно посчитать — быстро и без регистрации</p>
+
+        <!-- Калькулятор коммуналки -->
+<section id="utility" class="calculator-section">
+    <h2>Калькулятор коммуналки</h2>
+    <div class="calculator">
+        <div class="form-group">
+            <label>Электричество (кВт):</label>
+            <input type="number" id="electricity" placeholder="Введите кВт" min="0" step="0.1">
+        </div>
+        <div class="form-group">
+            <label>Вода (м³):</label>
+            <input type="number" id="water" placeholder="Введите м³" min="0" step="0.1">
+        </div>
+        <div class="form-group">
+            <label>Отопление (Гкал):</label>
+            <input type="number" id="heating" placeholder="Введите Гкал" min="0" step="0.01">
+        </div>
+        <div class="form-group">
+            <label>Выберите регион:</label>
+            <select id="tariff-select">
+                <option value="moscow">Москва</option>
+                <option value="spb">Санкт-Петербург</option>
+                <option value="ekb">Екатеринбург</option>
+                <option value="custom">Другой регион (ввести тарифы)</option>
+            </select>
+        </div>
+        
+        <div id="custom-tariffs" style="display: none;">
+            <div class="form-group">
+                <label>Тариф на электричество (руб/кВт):</label>
+                <input type="number" id="custom-electricity" placeholder="Введите тариф" min="0" step="0.1">
+            </div>
+            <div class="form-group">
+                <label>Тариф на воду (руб/м³):</label>
+                <input type="number" id="custom-water" placeholder="Введите тариф" min="0" step="0.1">
+            </div>
+            <div class="form-group">
+                <label>Тариф на отопление (руб/Гкал):</label>
+                <input type="number" id="custom-heating" placeholder="Введите тариф" min="0" step="0.1">
+            </div>
+        </div>
+        
+        <button class="btn-primary" onclick="calculateUtility()">Рассчитать</button>
+        <div id="utility-result" class="result"></div>
+    </div>
+</section>
+
+        <!-- Калькулятор бюджета семьи -->
+<section id="budget" class="calculator-section">
+    <h2>Калькулятор бюджета семьи</h2>
+    <div class="calculator">
+        <div class="form-group">
+            <label>Доход (руб):</label>
+            <input type="number" id="income" placeholder="Введите доход" min="0">
+        </div>
+        <div class="form-group">
+            <label>Аренда/ипотека (руб):</label>
+            <input type="number" id="rent" placeholder="Введите аренду" min="0">
+        </div>
+        <div class="form-group">
+            <label>Продукты (руб):</label>
+            <input type="number" id="food" placeholder="Введите расходы на продукты" min="0">
+        </div>
+        <div class="form-group">
+            <label>Транспорт (руб):</label>
+            <input type="number" id="transport" placeholder="Введите расходы на транспорт" min="0">
+        </div>
+        <div class="form-group">
+            <label>Развлечения (руб):</label>
+            <input type="number" id="entertainment" placeholder="Введите расходы на развлечения" min="0">
+        </div>
+        <div class="form-group">
+            <label>ЖКХ (руб):</label>
+            <input type="number" id="utilities" placeholder="Введите расходы на ЖКХ" min="0">
+        </div>
+        <div class="form-group">
+            <label>Другие расходы (руб):</label>
+            <input type="number" id="other" placeholder="Введите другие расходы" min="0">
+        </div>
+        <button class="btn-primary" onclick="calculateBudget()">Рассчитать</button>
+        <div id="budget-result" class="result"></div>
+        <canvas id="budgetChart" width="400" height="200"></canvas>
+    </div>
+</section>
+
+        <!-- Калькулятор ИМТ -->
+        <section id="bmi" class="calculator-section">
+			<h2>Калькулятор ИМТ (индекс массы тела)</h2>
+			<div class="calculator">
+				<div class="form-group">
+					<label>Пол:</label>
+					<select id="gender">
+						<option value="male">Мужской</option>
+						<option value="female">Женский</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Возраст (лет):</label>
+					<input type="number" id="age" placeholder="Введите возраст" min="18" max="100">
+				</div>
+				<div class="form-group">
+					<label>Рост (см):</label>
+					<input type="number" id="height" placeholder="Введите рост в см" min="0">
+				</div>
+				<div class="form-group">
+					<label>Вес (кг):</label>
+					<input type="number" id="weight" placeholder="Введите вес в кг" min="0">
+				</div>
+				<button class="btn-primary" onclick="calculateBMI()">Рассчитать</button>
+				<div id="bmi-result" class="result"></div>
+			</div>
+		</section>
+
+        <!-- Калькулятор скидки -->
+        <section id="discount" class="calculator-section">
+            <h2>Калькулятор скидки</h2>
+            <div class="calculator">
+                <div class="form-group">
+                    <label>Старая цена (руб):</label>
+                    <input type="number" id="oldPrice" placeholder="Введите старую цену" min="0">
+                </div>
+                <div class="form-group">
+                    <label>Скидка (%):</label>
+                    <input type="number" id="discountPercent" placeholder="Введите процент скидки" min="0" max="100">
+                </div>
+                <button class="btn-primary" onclick="calculateDiscount()">Рассчитать</button>
+                <div id="discount-result" class="result"></div>
+            </div>
+        </section>
+
+        <!-- Калькулятор вклада -->
+        <section id="deposit" class="calculator-section">
+			<h2>Калькулятор вклада</h2>
+			<div class="calculator">
+				<div class="form-group">
+					<label>Сумма вклада (руб):</label>
+					<input type="number" id="depositAmount" placeholder="Введите сумму" min="0">
+				</div>
+				<div class="form-group">
+					<label>Срок (месяцев):</label>
+					<input type="number" id="depositTerm" placeholder="Введите срок в месяцах" min="1">
+				</div>
+				<div class="form-group">
+					<label>Процентная ставка (% годовых):</label>
+					<input type="number" id="interestRate" placeholder="Введите процентную ставку" min="0" step="0.1">
+				</div>
+				<div class="form-group">
+					<label class="checkbox-label">
+						<input type="checkbox" id="capitalization"> 
+						<span>Капитализация процентов</span>
+					</label>
+				</div>
+				<button class="btn-primary" onclick="calculateDeposit()">Рассчитать</button>
+				<div id="deposit-result" class="result"></div>
+			</div>
+		</section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Умная Помощь. Все советы — бесплатно.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="about.html">О сайте</a>
+                <a href="contact.html">Контакты</a>
+            </div>
+            <div class="social-icons">
+                <a href="#">ВКонтакте</a>
+                <a href="#">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+</html>

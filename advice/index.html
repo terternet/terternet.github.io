@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<!-- Иконки для разных устройств -->
+	<link rel="icon" type="image/png" sizes="32x32" href="../images/icon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../images/icon.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../images/icon.png">
+	<link rel="manifest" href="../manifest.json">
+
+	<!-- Open Graph и социальные сети -->
+	<meta property="og:image" content="../images/icon.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="512">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Полезные советы для жизни: финансы, работа, здоровье, дом. Бесплатные рекомендации.">
+    <title>Советы | Умная Помощь</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Хедер -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">Умная Помощь</div>
+            <nav class="nav">
+                <a href="../index.html">Главная</a>
+                <a href="../calculators.html">Калькуляторы</a>
+                <a href="index.html">Советы</a>
+                <a href="../about.html">О сайте</a>
+                <a href="../contact.html">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+                <button class="feedback-btn" onclick="location.href='../contact.html#feedback'">Обратная связь</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <h1>Полезные советы для жизни</h1>
+        
+        <!-- Поисковая строка и фильтры -->
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Поиск по статьям...">
+                <button class="btn-primary" onclick="searchArticles()">Найти</button>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterArticles('all')">Все</button>
+                <button class="filter-btn" onclick="filterArticles('финансы')">Финансы</button>
+                <button class="filter-btn" onclick="filterArticles('работа')">Работа</button>
+                <button class="filter-btn" onclick="filterArticles('здоровье')">Здоровье</button>
+                <button class="filter-btn" onclick="filterArticles('дом')">Дом</button>
+            </div>
+        </div>
+
+        <!-- Список статей -->
+        <div class="articles-list" id="articlesList">
+            <!-- Статья 1 -->
+            <article class="article-card">
+                <h3><a href="zhkh-2025.html">Как сэкономить на ЖКХ — 7 проверенных способов</a></h3>
+                <p>Практические рекомендации по снижению расходов на коммунальные услуги в 2025 году.</p>
+                <div class="article-meta">
+                    <span class="tag">#финансы</span>
+                    <span class="tag">#жкх</span>
+                    <span class="date">15 марта 2025</span>
+                </div>
+            </article>
+
+            <!-- Статья 2 -->
+            <article class="article-card">
+                <h3><a href="resume-template.html">Шаблон резюме в Word — скачать бесплатно</a></h3>
+                <p>Профессиональный шаблон резюме, который поможет вам устроиться на работу.</p>
+                <div class="article-meta">
+                    <span class="tag">#работа</span>
+                    <span class="tag">#резюме</span>
+                    <span class="date">10 марта 2025</span>
+                </div>
+            </article>
+
+            <!-- Статья 3 -->
+            <article class="article-card">
+                <h3><a href="alimony.html">Как подать на алименты: пошаговая инструкция</a></h3>
+                <p>Подробное руководство по получению алиментов через суд или добровольное соглашение.</p>
+                <div class="article-meta">
+                    <span class="tag">#дом</span>
+                    <span class="tag">#семья</span>
+                    <span class="date">5 марта 2025</span>
+                </div>
+            </article>
+
+            <!-- Статья 4 -->
+            <article class="article-card">
+                <h3><a href="vacation-application.html">Как написать заявление на отпуск — образец 2025</a></h3>
+                <p>Правильный образец заявления на отпуск согласно трудовому кодексу РФ.</p>
+                <div class="article-meta">
+                    <span class="tag">#работа</span>
+                    <span class="tag">#документы</span>
+                    <span class="date">1 марта 2025</span>
+                </div>
+            </article>
+
+            <!-- Статья 5 -->
+            <article class="article-card">
+                <h3><a href="child-benefits.html">Как оформить детские пособия в 2025 году</a></h3>
+                <p>Полное руководство по оформлению всех видов детских пособий через портал Госуслуги.</p>
+                <div class="article-meta">
+                    <span class="tag">#финансы</span>
+                    <span class="tag">#дети</span>
+                    <span class="date">25 февраля 2025</span>
+                </div>
+            </article>
+
+            <!-- Статья 6 -->
+            <article class="article-card">
+                <h3><a href="weight-loss.html">Как сбросить вес: эффективные методы 2025</a></h3>
+                <p>Научно обоснованные подходы к снижению веса без вреда для здоровья.</p>
+                <div class="article-meta">
+                    <span class="tag">#здоровье</span>
+                    <span class="tag">#питание</span>
+                    <span class="date">20 февраля 2025</span>
+                </div>
+            </article>
+
+            <!-- Статья 7 -->
+            <article class="article-card">
+                <h3><a href="home-repair.html">Капитальный ремонт квартиры: с чего начать</a></h3>
+                <p>Пошаговое руководство по планированию и выполнению капитального ремонта.</p>
+                <div class="article-meta">
+                    <span class="tag">#дом</span>
+                    <span class="tag">#ремонт</span>
+                    <span class="date">15 февраля 2025</span>
+                </div>
+            </article>
+
+            <!-- Статья 8 -->
+            <article class="article-card">
+                <h3><a href="investment.html">С чего начать инвестировать в 2025 году</a></h3>
+                <p>Руководство для новичков по основам инвестиций и выбору подходящих инструментов.</p>
+                <div class="article-meta">
+                    <span class="tag">#финансы</span>
+                    <span class="tag">#инвестиции</span>
+                    <span class="date">10 февраля 2025</span>
+                </div>
+            </article>
+
+            <!-- Статья 9 -->
+            <article class="article-card">
+                <h3><a href="job-search.html">Как быстро найти работу в 2025 году</a></h3>
+                <p>Эффективные стратегии поиска работы в условиях современного рынка труда.</p>
+                <div class="article-meta">
+                    <span class="tag">#работа</span>
+                    <span class="tag">#карьера</span>
+                    <span class="date">5 февраля 2025</span>
+                </div>
+            </article>
+
+            <!-- Статья 10 -->
+            <article class="article-card">
+                <h3><a href="home-budget.html">Как вести домашний бюджет: практическое руководство</a></h3>
+                <p>Простые методы учета доходов и расходов для финансовой стабильности.</p>
+                <div class="article-meta">
+                    <span class="tag">#финансы</span>
+                    <span class="tag">#бюджет</span>
+                    <span class="date">1 февраля 2025</span>
+                </div>
+            </article>
+        </div>
+
+        <!-- Пагинация -->
+        <div class="pagination">
+            <button class="btn-secondary" onclick="prevPage()">Назад</button>
+            <span class="page-info">Страница <span id="currentPage">1</span> из <span id="totalPages">2</span></span>
+            <button class="btn-secondary" onclick="nextPage()">Вперед</button>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Умная Помощь. Все советы — бесплатно.</p>
+            <div class="footer-links">
+                <a href="../privacy.html">Политика конфиденциальности</a>
+                <a href="../about.html">О сайте</a>
+                <a href="../contact.html">Контакты</a>
+            </div>
+            <div class="social-icons">
+                <a href="#">ВКонтакте</a>
+                <a href="#">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/search.js"></script>
+</body>
+</html>

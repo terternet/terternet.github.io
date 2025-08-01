@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+
+Sitemap: https://umnyapomoshch.netlify.app/sitemap.xml
+
+Host: umnyapomoshch.netlify.app
