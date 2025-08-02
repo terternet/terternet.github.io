@@ -162,40 +162,33 @@ function calculateBudget() {
 
 // Создание диаграммы для бюджета (исправленная версия)
 function createBudgetChart(data) {
-    const ctx = document.getElementById('budgetChart');
-    if (ctx) {
-        // Удаляем предыдущую диаграмму если есть
-        if (window.budgetChart) {
-            window.budgetChart.destroy();
-        }
-        
-        window.budgetChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Аренда', 'Продукты', 'Транспорт', 'Развлечения', 'ЖКХ', 'Другое', 'Сбережения'],
-                datasets: [{
-                     data,
-                    backgroundColor: [
-                        '#4A90E2',
-                        '#50C878',
-                        '#FF6B6B',
-                        '#FFD93D',
-                        '#9B59B6',
-                        '#3498DB',
-                        '#2ECC71'
-                    ]
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
+    const ctx = document.getElementById('budgetChart').getContext('2d');
+
+    // Уничтожаем предыдущую диаграмму, если есть
+    if (window.budgetChart && typeof window.budgetChart.destroy === 'function') {
+        window.budgetChart.destroy();
+    }
+
+    window.budgetChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: Object.keys(data),
+            datasets: [{
+                data: Object.values(data),
+                backgroundColor: [
+                    '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
                 }
             }
-        });
-    }
+        }
+    });
 }
 
 // Калькулятор ИМТ
@@ -337,4 +330,5 @@ document.addEventListener('DOMContentLoaded', function() {
         tariffSelect.addEventListener('change', toggleCustomTariffs);
         toggleCustomTariffs(); // Инициализация при загрузке
     }
+
 });
