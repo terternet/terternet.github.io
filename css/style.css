@@ -979,3 +979,29 @@ body.dark-theme .social-link:hover {
 .social-link span {
     font-weight: 500;
 }
+/* Исправление иконок социальных сетей в подвале */
+.footer .social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.footer .social-icons img {
+    filter: none; /* Убираем фильтр, который делал их серыми */
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+    transform: translateY(-3px);
+}
+
+.footer .social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Для темной темы */
+body.dark-theme .footer .social-icons img {
+    filter: brightness(0) invert(1); /* Делаем белыми в темной теме */
+}
