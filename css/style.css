@@ -1005,3 +1005,59 @@ body.dark-theme .social-link:hover {
 body.dark-theme .footer .social-icons img {
     filter: brightness(0) invert(1); /* Делаем белыми в темной теме */
 }
+/* Мобильная навигация */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px 0;
+    }
+    
+    .nav a {
+        margin: 5px;
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    
+    .logo {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .header-actions {
+        margin-top: 10px;
+    }
+    
+    .feedback-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .theme-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .nav a {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+}
