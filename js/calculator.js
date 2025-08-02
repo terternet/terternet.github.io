@@ -206,30 +206,27 @@ function createBudgetChart(data) {
 }
 
 // Калькулятор ИМТ
+// Исправленный калькулятор ИМТ
 function calculateBMI() {
-    const gender = document.getElementById('gender').value;
-    const age = parseInt(document.getElementById('age').value) || 0;
-    const height = parseFloat(document.getElementById('height').value) || 0;
-    const weight = parseFloat(document.getElementById('weight').value) || 0;
+    // Получаем значения из полей ввода
+    const height = parseFloat(document.getElementById('height').value);
+    const weight = parseFloat(document.getElementById('weight').value);
     
-    if (age < 18 || age > 100) {
-        document.getElementById('bmi-result').innerHTML = '<p class="error">Введите возраст от 18 до 100 лет</p>';
+    // Проверка корректности ввода
+    if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+        document.getElementById('bmi-result').innerHTML = '<p class="error">Пожалуйста, введите корректные значения роста и веса</p>';
         return;
     }
     
-    if (height <= 0 || weight <= 0) {
-        document.getElementById('bmi-result').innerHTML = '<p class="error">Введите корректные данные о росте и весе</p>';
-        return;
-    }
-    
-    const heightInMeters = height / 100;
+    // Расчет ИМТ
+    const heightInMeters = height / 100; // Переводим см в метры
     const bmi = weight / (heightInMeters * heightInMeters);
     
+    // Определение категории
     let category = '';
     let advice = '';
     let color = '';
     
-    // Определение категории с учетом пола и возраста
     if (bmi < 18.5) {
         category = 'Недовес';
         advice = 'Рекомендуется набрать вес. Проконсультируйтесь с врачом.';
@@ -248,37 +245,23 @@ function calculateBMI() {
         color = '#FF0000';
     }
     
-    // Дополнительные рекомендации с учетом возраста и пола
-    let personalizedAdvice = '';
-    if (age > 50) {
-        personalizedAdvice = '<p><strong>Для вашего возраста:</strong> Обратите внимание на костную плотность и мышечную массу.</p>';
-    } else if (age > 30) {
-        personalizedAdvice = '<p><strong>Для вашего возраста:</strong> Регулярные тренировки помогут сохранить форму.</p>';
-    }
-    
-    if (gender === 'female' && age > 40) {
-        personalizedAdvice += '<p><strong>Для женщин после 40:</strong> Уделите внимание гормональному балансу и профилактике остеопороза.</p>';
-    }
-    
+    // Отображение результата
     document.getElementById('bmi-result').innerHTML = `
-        <div class="bmi-result-content">
-            <p><strong>ИМТ: <span style="color: ${color}">${bmi.toFixed(1)}</span></strong></p>
-            <p><strong>Категория: ${category}</strong></p>
-            <p>${advice}</p>
-            ${personalizedAdvice}
-            <div class="bmi-scale">
-                <h4>Шкала ИМТ:</h4>
-                <div class="scale-bar">
-                    <div class="scale-segment" style="background-color: #FF6B6B; width: 25%;">Недовес</div>
-                    <div class="scale-segment" style="background-color: #50C878; width: 30%;">Норма</div>
-                    <div class="scale-segment" style="background-color: #FFA500; width: 25%;">Избыток</div>
-                    <div class="scale-segment" style="background-color: #FF0000; width: 20%;">Ожирение</div>
-                </div>
-                <div class="scale-markers">
-                    <span>18.5</span>
-                    <span>25</span>
-                    <span>30</span>
-                </div>
+        <p><strong>ИМТ: <span style="color: ${color}">${bmi.toFixed(1)}</span></strong></p>
+        <p><strong>Категория: ${category}</strong></p>
+        <p>${advice}</p>
+        <div class="bmi-scale">
+            <h4>Шкала ИМТ:</h4>
+            <div class="scale-bar">
+                <div class="scale-segment" style="background-color: #FF6B6B; width: 25%;">Недовес</div>
+                <div class="scale-segment" style="background-color: #50C878; width: 30%;">Норма</div>
+                <div class="scale-segment" style="background-color: #FFA500; width: 25%;">Избыток</div>
+                <div class="scale-segment" style="background-color: #FF0000; width: 20%;">Ожирение</div>
+            </div>
+            <div class="scale-markers">
+                <span>18.5</span>
+                <span>25</span>
+                <span>30</span>
             </div>
         </div>
     `;
@@ -357,4 +340,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
 
