@@ -1,5 +1,6 @@
-// Переключение темной темы
+// Переключение темной темы и мобильное меню
 document.addEventListener('DOMContentLoaded', function() {
+    // Переключение темной темы
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     
@@ -7,22 +8,44 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         body.classList.add('dark-theme');
-        themeToggle.textContent = '☀️';
+        if (themeToggle) {
+            themeToggle.textContent = '☀️';
+        }
     }
     
     // Переключение темы
-    themeToggle.addEventListener('click', function() {
-        body.classList.toggle('dark-theme');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-theme');
+            
+            // Сохраняем выбор в localStorage
+            if (body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙';
+            }
+        });
+    }
+    
+    // Мобильное меню
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+    
+    if (mobileMenuBtn && nav) {
+        mobileMenuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
         
-        // Сохраняем выбор в localStorage
-        if (body.classList.contains('dark-theme')) {
-            localStorage.setItem('theme', 'dark');
-            themeToggle.textContent = '☀️';
-        } else {
-            localStorage.setItem('theme', 'light');
-            themeToggle.textContent = '🌙';
-        }
-    });
+        // Закрытие меню при клике на ссылку
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+            });
+        });
+    }
     
     // Добавляем плавные переходы при загрузке страницы
     document.body.style.opacity = '0';
