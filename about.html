@@ -1,36 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<!-- Иконки для разных устройств -->
-	<link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="images/icon.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
-	<link rel="manifest" href="manifest.json">
-
-	<!-- Open Graph и социальные сети -->
-	<meta property="og:image" content="images/icon.png">
-	<meta property="og:image:width" content="512">
-	<meta property="og:image:height" content="512">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="О проекте Умная Помощь. Мы делаем полезные инструменты и советы доступными для всех.">
     <title>О сайте | Умная Помощь</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103569604', 'ym');
-
-    ym(103569604, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/103569604" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+    
+    <!-- Иконки для разных устройств -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
+    
+    <!-- Open Graph для социальных сетей -->
+    <meta property="og:image" content="https://smarthelping.ru/images/icon.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:type" content="image/png">
 </head>
 <body>
     <!-- Хедер -->
@@ -40,11 +27,14 @@
             <nav class="nav">
                 <a href="index.html">Главная</a>
                 <a href="calculators.html">Калькуляторы</a>
-                <a href="advice/">Советы</a>
+                <a href="advice/index.html">Советы</a>
                 <a href="about.html">О сайте</a>
                 <a href="contact.html">Контакты</a>
             </nav>
-            <button class="feedback-btn">Обратная связь</button>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+                <button class="feedback-btn" onclick="location.href='contact.html#feedback'">Обратная связь</button>
+            </div>
         </div>
     </header>
 
@@ -56,54 +46,45 @@
             <p>Мы делаем полезные инструменты и советы доступными для всех. Без регистрации, без смс, бесплатно.</p>
             
             <h2>Кто мы</h2>
-            <p>Команда из 2 человек: программист и контент-мейкер. Мы объединились с целью создать максимально полезный ресурс для решения повседневных задач.</p>
-            
-            <h2>Наша цель</h2>
-            <p>Помогать людям решать бытовые задачи быстро и эффективно. Мы верим, что доступ к полезной информации должен быть бесплатным и удобным.</p>
-            
-            <h2>Что мы предлагаем</h2>
+            <p>Команда из 2 человек:</p>
             <ul>
-                <li>Простые калькуляторы для решения бытовых задач</li>
-                <li>Практические советы по финансам, работе, здоровью и дому</li>
-                <li>Шаблоны документов и чек-листы</li>
-                <li>Актуальная информация по государственным услугам</li>
+                <li><strong>Алексей</strong> (Terternet / akaAlexey) - владелец, редактор, программист, администратор</li>
+                <li><strong>Егор</strong> - администратор, редактор</li>
             </ul>
             
-            <h2>Наши принципы</h2>
+            <h2>Наша миссия</h2>
+            <p>Помочь гражданам России разобраться с сложными темами семейной жизни.</p>
+            
+            <h2>Наши ценности</h2>
             <ul>
-                <li><strong>Бесплатность</strong> — все инструменты и советы абсолютно бесплатны</li>
-                <li><strong>Простота</strong> — интерфейс интуитивно понятен, без лишних элементов</li>
-                <li><strong>Полезность</strong> — только проверенная и актуальная информация</li>
-                <li><strong>Доступность</strong> — сайт работает быстро на всех устройствах</li>
+                <li><strong>Семья</strong> - основа нашего общества</li>
+                <li><strong>Полезность</strong> - только проверенная и актуальная информация</li>
+                <li><strong>Доступность</strong> - сайт работает быстро на всех устройствах</li>
+                <li><strong>Бесплатность</strong> - все инструменты и советы абсолютно бесплатны</li>
             </ul>
             
-            <h2>Контакты</h2>
-            <p>Если у вас есть вопросы, предложения или вы хотите сотрудничать, свяжитесь с нами:</p>
-            <p><strong>Email:</strong> <a href="mailto:info@umnyapomoshch.ru">info@umnyapomoshch.ru</a></p>
+            <h2>История проекта</h2>
+            <p>Проект "Умная Помощь" был запущен 1 августа 2025 года. Несмотря на то, что у нас пока нет значительных достижений, мы активно работаем над созданием полезного ресурса для наших пользователей.</p>
+            <p><em>История проекта только начинается, и мы уверены, что впереди нас ждут интересные вехи и достижения!</em></p>
             
-            <div class="feedback-form">
-                <h3>Форма обратной связи</h3>
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <div class="form-group">
-                        <label for="name">Ваше имя:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Сообщение:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary">Отправить</button>
-                </form>
+            <h2>Наши планы</h2>
+            <ul>
+                <li>Улучшить интерфейс сайта</li>
+                <li>Выслушать советы посетителей сайта</li>
+                <li>Написать десятки новых статей</li>
+                <li>Откорректировать существующие материалы</li>
+            </ul>
+            
+            <h2>Отзывы пользователей</h2>
+            <div class="testimonials">
+                <p><em>Пока у нас нет отзывов пользователей, но мы будем рады вашим комментариям!</em></p>
+                <a href="contact.html#feedback" class="btn-secondary">Оставить отзыв</a>
             </div>
             
             <div class="idea-section">
-                <h3>Предложить идею</h3>
+                <h2>Предложить идею</h2>
                 <p>У вас есть идея для нового калькулятора или статьи? Мы всегда открыты для предложений!</p>
-                <a href="mailto:ideas@umnyapomoshch.ru" class="btn-secondary">Написать идею</a>
+                <a href="contact.html#feedback" class="btn-secondary">Написать идею</a>
             </div>
         </div>
     </main>
@@ -118,11 +99,14 @@
                 <a href="contact.html">Контакты</a>
             </div>
             <div class="social-icons">
-                <a href="#">ВКонтакте</a>
-                <a href="#">Telegram</a>
+                <!-- TODO: Добавить ссылки на социальные сети -->
+                <a href="#"><img src="images/icons/social1.svg" alt="Соцсеть 1" width="24" height="24"></a>
+                <a href="#"><img src="images/icons/social2.svg" alt="Соцсеть 2" width="24" height="24"></a>
+                <a href="#"><img src="images/icons/social3.svg" alt="Соцсеть 3" width="24" height="24"></a>
             </div>
         </div>
     </footer>
-</body>
 
+    <script src="js/theme.js"></script>
+</body>
 </html>
