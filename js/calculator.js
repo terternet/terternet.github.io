@@ -159,36 +159,50 @@ function calculateBudget() {
     // Создание диаграммы
     createBudgetChart([rent, food, transport, entertainment, utilities, other, savings]);
 }
-
 // Создание диаграммы для бюджета (исправленная версия)
 function createBudgetChart(data) {
-    const ctx = document.getElementById('budgetChart').getContext('2d');
-
-    // Уничтожаем предыдущую диаграмму, если есть
-    if (window.budgetChart && typeof window.budgetChart.destroy === 'function') {
-        window.budgetChart.destroy();
-    }
-
-    window.budgetChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: Object.keys(data),
-            datasets: [{
-                data: Object.values(data),
-                backgroundColor: [
-                    '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'
-                ]
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
+    const ctx = document.getElementById('budgetChart');
+    if (ctx) {
+        // Удаляем предыдущую диаграмму если есть
+        if (window.budgetChart && typeof window.budgetChart.destroy === 'function') {
+            window.budgetChart.destroy();
+        }
+        
+        window.budgetChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Аренда', 'Продукты', 'Транспорт', 'Развлечения', 'ЖКХ', 'Другое', 'Сбережения'],
+                datasets: [{
+                     data,
+                    backgroundColor: [
+                        '#4A90E2',
+                        '#50C878',
+                        '#FF6B6B',
+                        '#FFD93D',
+                        '#9B59B6',
+                        '#3498DB',
+                        '#2ECC71'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    }
+                },
+                animation: {
+                    animateRotate: true,
+                    animateScale: true
                 }
             }
-        }
-    });
+        });
+    }
 }
 
 // Калькулятор ИМТ
@@ -198,8 +212,13 @@ function calculateBMI() {
     const height = parseFloat(document.getElementById('height').value) || 0;
     const weight = parseFloat(document.getElementById('weight').value) || 0;
     
-    if (age < 18 || age > 100 || height <= 0 || weight <= 0) {
-        document.getElementById('bmi-result').innerHTML = '<p class="error">Введите корректные данные (возраст 18-100 лет)</p>';
+    if (age < 18 || age > 100) {
+        document.getElementById('bmi-result').innerHTML = '<p class="error">Введите возраст от 18 до 100 лет</p>';
+        return;
+    }
+    
+    if (height <= 0 || weight <= 0) {
+        document.getElementById('bmi-result').innerHTML = '<p class="error">Введите корректные данные о росте и весе</p>';
         return;
     }
     
@@ -229,31 +248,37 @@ function calculateBMI() {
         color = '#FF0000';
     }
     
-    // Дополнительные рекомендации с учетом возраста
-    let ageAdvice = '';
+    // Дополнительные рекомендации с учетом возраста и пола
+    let personalizedAdvice = '';
     if (age > 50) {
-        ageAdvice = '<p><strong>Для вашего возраста:</strong> Обратите внимание на костную плотность и мышечную массу.</p>';
+        personalizedAdvice = '<p><strong>Для вашего возраста:</strong> Обратите внимание на костную плотность и мышечную массу.</p>';
     } else if (age > 30) {
-        ageAdvice = '<p><strong>Для вашего возраста:</strong> Регулярные тренировки помогут сохранить форму.</p>';
+        personalizedAdvice = '<p><strong>Для вашего возраста:</strong> Регулярные тренировки помогут сохранить форму.</p>';
+    }
+    
+    if (gender === 'female' && age > 40) {
+        personalizedAdvice += '<p><strong>Для женщин после 40:</strong> Уделите внимание гормональному балансу и профилактике остеопороза.</p>';
     }
     
     document.getElementById('bmi-result').innerHTML = `
-        <p><strong>ИМТ: <span style="color: ${color}">${bmi.toFixed(1)}</span></strong></p>
-        <p><strong>Категория: ${category}</strong></p>
-        <p>${advice}</p>
-        ${ageAdvice}
-        <div class="bmi-scale">
-            <h4>Шкала ИМТ:</h4>
-            <div class="scale-bar">
-                <div class="scale-segment" style="background-color: #FF6B6B; width: 25%;">Недовес</div>
-                <div class="scale-segment" style="background-color: #50C878; width: 30%;">Норма</div>
-                <div class="scale-segment" style="background-color: #FFA500; width: 25%;">Избыток</div>
-                <div class="scale-segment" style="background-color: #FF0000; width: 20%;">Ожирение</div>
-            </div>
-            <div class="scale-markers">
-                <span>18.5</span>
-                <span>25</span>
-                <span>30</span>
+        <div class="bmi-result-content">
+            <p><strong>ИМТ: <span style="color: ${color}">${bmi.toFixed(1)}</span></strong></p>
+            <p><strong>Категория: ${category}</strong></p>
+            <p>${advice}</p>
+            ${personalizedAdvice}
+            <div class="bmi-scale">
+                <h4>Шкала ИМТ:</h4>
+                <div class="scale-bar">
+                    <div class="scale-segment" style="background-color: #FF6B6B; width: 25%;">Недовес</div>
+                    <div class="scale-segment" style="background-color: #50C878; width: 30%;">Норма</div>
+                    <div class="scale-segment" style="background-color: #FFA500; width: 25%;">Избыток</div>
+                    <div class="scale-segment" style="background-color: #FF0000; width: 20%;">Ожирение</div>
+                </div>
+                <div class="scale-markers">
+                    <span>18.5</span>
+                    <span>25</span>
+                    <span>30</span>
+                </div>
             </div>
         </div>
     `;
@@ -332,3 +357,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
