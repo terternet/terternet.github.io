@@ -870,3 +870,112 @@ body.dark-theme .checkbox-label input[type="checkbox"] {
     opacity: 1;
     transform: scale(1);
 }
+/* Стили для страницы контактов */
+.contact-content .contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-content .contact-info li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #4A90E2;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .contact-content .contact-info li {
+    background-color: #333;
+    border-left-color: #6ab7ff;
+}
+
+.contact-content .contact-info li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.newsletter-section {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+body.dark-theme .newsletter-section {
+    background-color: #333;
+}
+
+/* Стили для страницы "О сайте" */
+.about-content .testimonials {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+body.dark-theme .about-content .testimonials {
+    background-color: #333;
+}
+
+.about-content .idea-section {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+body.dark-theme .about-content .idea-section {
+    background-color: #333;
+}
+
+/* Улучшенные стили для социальных ссылок */
+.social-icons-large {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #2C3E50;
+    transition: all 0.3s ease;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-5px);
+    text-decoration: none;
+}
+
+body.dark-theme .social-link {
+    color: #e0e0e0;
+}
+
+body.dark-theme .social-link:hover {
+    background-color: #444;
+}
+
+.social-link img {
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover img {
+    transform: scale(1.1);
+}
+
+.social-link span {
+    font-weight: 500;
+}
