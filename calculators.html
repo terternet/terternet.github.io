@@ -18,39 +18,25 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103569604', 'ym');
-
-    ym(103569604, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/103569604" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
     <!-- Хедер -->
     <header class="header">
-    <div class="container">
-        <div class="logo">Умная Помощь</div>
-        <button class="mobile-menu-btn">☰</button>
-        <nav class="nav">
-            <a href="index.html">Главная</a>
-            <a href="calculators.html">Калькуляторы</a>
-            <a href="advice/index.html">Советы</a>
-            <a href="about.html">О сайте</a>
-            <a href="contact.html">Контакты</a>
-        </nav>
-        <div class="header-actions">
-            <button class="theme-toggle" id="themeToggle">🌙</button>
-            <button class="feedback-btn" onclick="location.href='contact.html#feedback'">Обратная связь</button>
+        <div class="container">
+            <div class="logo">Умная Помощь</div>
+            <nav class="nav">
+                <a href="index.html">Главная</a>
+                <a href="calculators.html">Калькуляторы</a>
+                <a href="advice/index.html">Советы</a>
+                <a href="about.html">О сайте</a>
+                <a href="contact.html">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+                <button class="feedback-btn" onclick="location.href='contact.html#feedback'">Обратная связь</button>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <!-- Основной контент -->
     <main class="container">
@@ -140,37 +126,34 @@
         <canvas id="budgetChart" width="400" height="200"></canvas>
     </div>
 </section>
+
         <!-- Калькулятор ИМТ -->
-<section id="bmi" class="calculator-section">
-    <h2>Калькулятор ИМТ (индекс массы тела)</h2>
-    <div class="calculator">
-        <div class="form-row">
-            <div class="form-group">
-                <label>Пол:</label>
-                <select id="gender" class="form-control">
-                    <option value="male">Мужской</option>
-                    <option value="female">Женский</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Возраст (лет):</label>
-                <input type="number" id="age" class="form-control" placeholder="Введите возраст" min="18" max="100">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group">
-                <label>Рост (см):</label>
-                <input type="number" id="height" class="form-control" placeholder="Введите рост в см" min="0">
-            </div>
-            <div class="form-group">
-                <label>Вес (кг):</label>
-                <input type="number" id="weight" class="form-control" placeholder="Введите вес в кг" min="0">
-            </div>
-        </div>
-        <button class="btn-primary" onclick="calculateBMI()">Рассчитать</button>
-        <div id="bmi-result" class="result"></div>
-    </div>
-</section>
+        <section id="bmi" class="calculator-section">
+			<h2>Калькулятор ИМТ (индекс массы тела)</h2>
+			<div class="calculator">
+				<div class="form-group">
+					<label>Пол:</label>
+					<select id="gender">
+						<option value="male">Мужской</option>
+						<option value="female">Женский</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Возраст (лет):</label>
+					<input type="number" id="age" placeholder="Введите возраст" min="18" max="100">
+				</div>
+				<div class="form-group">
+					<label>Рост (см):</label>
+					<input type="number" id="height" placeholder="Введите рост в см" min="0">
+				</div>
+				<div class="form-group">
+					<label>Вес (кг):</label>
+					<input type="number" id="weight" placeholder="Введите вес в кг" min="0">
+				</div>
+				<button class="btn-primary" onclick="calculateBMI()">Рассчитать</button>
+				<div id="bmi-result" class="result"></div>
+			</div>
+		</section>
 
         <!-- Калькулятор скидки -->
         <section id="discount" class="calculator-section">
@@ -226,23 +209,14 @@
                 <a href="about.html">О сайте</a>
                 <a href="contact.html">Контакты</a>
             </div>
-	<div class="social-icons">
-	    <a href="ССЫЛКА_НА_ВК" target="_blank">
-	        <img src="images/vk.svg" alt="ВКонтакте" width="24" height="24">
-	    </a>
-	    <a href="ССЫЛКА_НА_TELEGRAM" target="_blank">
-	        <img src="images/tg.svg" alt="Telegram" width="24" height="24">
-	    </a>
-	</div>
+            <div class="social-icons">
+                <a href="#">ВКонтакте</a>
+                <a href="#">Telegram</a>
+            </div>
         </div>
     </footer>
 
     <script src="js/theme.js"></script>
     <script src="js/calculator.js"></script>
 </body>
-
 </html>
-
-
-
-
