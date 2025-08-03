@@ -833,3 +833,22 @@ body.dark-theme .about-content .idea-section {
         padding: 15px 30px;
     }
 }
+body.dark-theme .nav {
+    background-color: #2d2d2d;
+}
+body.dark-theme .tip-card span {
+    color: #0000FF;
+    font-weight: 500;
+}
+body.dark-theme .tip-card img {
+    filter: brightness(1.5);
+}
+body.dark-theme .form-group input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 2px rgba(106, 183, 255, 0.5);
+}
+body.dark-theme select:focus {
+    box-shadow: 0 0 0 2px rgba(106, 183, 255, 0.5);
+}
+.tip-card img {
+    transition: filter 0.3s ease;
+}
