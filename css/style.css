@@ -9,31 +9,82 @@ body {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    color: #2C3E50; /* Основной текст */
-    background-color: #F8F9FA; /* Основной фон */
+    color: #2C3E50;
+    background-color: #F8F9FA;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Темная тема */
 body.dark-theme {
-    background-color: #121212; /* Очень темный фон страницы */
-    color: #e0e0e0; /* Светлый текст */
+    background-color: #1a1a1a;
+    color: #e0e0e0;
 }
 
-/* Контейнер */
+body.dark-theme .header {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .logo {
+    color: #6ab7ff;
+}
+
+body.dark-theme .nav a {
+    color: #e0e0e0;
+}
+
+body.dark-theme .nav a:hover {
+    color: #6ab7ff;
+}
+
+body.dark-theme .card {
+    background: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .tip-card {
+    background-color: #333;
+}
+
+body.dark-theme .tip-card:hover {
+    background-color: #444;
+}
+
+body.dark-theme .footer {
+    background-color: #2d2d2d;
+}
+
+body.dark-theme .calculator {
+    background: #2d2d2d;
+    border: 1px solid #444;
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group select,
+body.dark-theme .form-group textarea {
+    background-color: #333;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-theme .form-group input:focus,
+body.dark-theme .form-group select:focus,
+body.dark-theme .form-group textarea:focus {
+    border-color: #6ab7ff;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Заголовки */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 15px;
-    color: inherit; /* Наследует цвет от body */
 }
 
 h1 {
@@ -50,25 +101,15 @@ h3 {
     font-size: 24px;
 }
 
-/* Ссылки */
 a {
     text-decoration: none;
-    color: #4A90E2; /* Основной синий для ссылок */
+    color: #4A90E2;
     transition: color 0.3s ease;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #6ab7ff; /* Более светлый синий при наведении для темной темы */
-}
-
-/* Темная тема для ссылок */
-body.dark-theme a {
-    color: #6ab7ff; /* Голубой для ссылок в темной теме */
-}
-
-body.dark-theme a:hover {
-    color: #9fc9ff; /* Ещё более светлый голубой при наведении */
+    color: #3a7bc8;
 }
 
 /* Анимации */
@@ -114,7 +155,6 @@ body.dark-theme a:hover {
 .fade-in-up { animation: fadeInUp 0.6s ease-out; }
 .fade-in-down { animation: fadeInDown 0.6s ease-out; }
 
-/* Кнопки */
 .btn-primary, .btn-secondary {
     display: inline-block;
     padding: 12px 24px;
@@ -129,26 +169,26 @@ body.dark-theme a:hover {
 }
 
 .btn-primary {
-    background-color: #4A90E2; /* Основной синий */
+    background-color: #4A90E2;
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #3a7bc8; /* Темнее при наведении */
+    background-color: #3a7bc8;
     text-decoration: none;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
 }
 
 .btn-secondary {
-    background-color: #50C878; /* Основной зеленый */
+    background-color: #50C878;
     color: white;
     font-size: 14px;
     padding: 8px 16px;
 }
 
 .btn-secondary:hover {
-    background-color: #42b769; /* Темнее при наведении */
+    background-color: #42b769;
     text-decoration: none;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(80, 200, 120, 0.4);
@@ -171,12 +211,6 @@ body.dark-theme a:hover {
     padding: 15px 20px;
 }
 
-/* Темная тема для хедера */
-body.dark-theme .header {
-    background-color: #1e1e1e; /* Темный фон хедера */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-
 .logo {
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
@@ -185,12 +219,6 @@ body.dark-theme .header {
     animation: slideInLeft 0.8s ease-out;
 }
 
-/* Темная тема для логотипа */
-body.dark-theme .logo {
-    color: #6ab7ff; /* Голубой для логотипа */
-}
-
-/* Навигация */
 .nav a {
     margin-right: 25px;
     color: #2C3E50;
@@ -204,22 +232,12 @@ body.dark-theme .logo {
     transform: translateY(-2px);
 }
 
-/* Темная тема для навигации */
-body.dark-theme .nav a {
-    color: #e0e0e0; /* Светлый текст */
-}
-
-body.dark-theme .nav a:hover {
-    color: #6ab7ff; /* Голубой при наведении */
-}
-
 .header-actions {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-/* Переключатель темы */
 .theme-toggle {
     background: none;
     border: none;
@@ -238,12 +256,10 @@ body.dark-theme .nav a:hover {
     background-color: #f0f0f0;
 }
 
-/* Темная тема для переключателя темы */
 body.dark-theme .theme-toggle:hover {
-    background-color: #333; /* Темнее в темной теме */
+    background-color: #444;
 }
 
-/* Кнопка обратной связи */
 .feedback-btn {
     background-color: #50C878;
     color: white;
@@ -284,15 +300,9 @@ body.dark-theme .theme-toggle:hover {
     margin-right: auto;
 }
 
-/* Темная тема для героя */
-body.dark-theme .hero {
-    background: linear-gradient(135deg, #1a4a8a 0%, #2c5aa0 100%); /* Темные оттенки синего */
-}
-
 /* Популярные инструменты */
 .tools {
     padding: 60px 0;
-    background-color: #F8F9FA;
 }
 
 .tools h2 {
@@ -315,8 +325,6 @@ body.dark-theme .hero {
     transition: all 0.3s ease;
     animation: fadeInUp 0.6s ease-out;
     animation-fill-mode: both;
-    border: 1px solid #eee;
-    color: #2C3E50; /* Цвет текста внутри карточки */
 }
 
 .card:hover {
@@ -339,28 +347,11 @@ body.dark-theme .hero {
 
 .card h3 {
     margin-bottom: 10px;
-    color: #2C3E50; /* Цвет заголовка */
 }
 
 .card p {
     margin-bottom: 20px;
-    color: #666; /* Цвет описания */
-}
-
-/* Темная тема для карточек */
-body.dark-theme .card {
-    background: #1e1e1e; /* Темный фон карточки */
-    border: 1px solid #333; /* Темная граница */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    color: #e0e0e0; /* Светлый текст */
-}
-
-body.dark-theme .card h3 {
-    color: #e0e0e0; /* Светлый заголовок */
-}
-
-body.dark-theme .card p {
-    color: #b0b0b0; /* Более светлое описание */
+    color: #666;
 }
 
 /* Советы дня */
@@ -383,8 +374,6 @@ body.dark-theme .card p {
     margin-bottom: 15px;
     transition: all 0.3s ease;
     animation: fadeInUp 0.6s ease-out;
-    border: 1px solid #eee;
-    color: #2C3E50; /* Цвет текста */
 }
 
 .tip-card:hover {
@@ -396,7 +385,6 @@ body.dark-theme .card p {
 .tip-card img {
     margin-right: 15px;
     transition: transform 0.3s ease;
-    filter: none; /* Убираем фильтр по умолчанию */
 }
 
 .tip-card:hover img {
@@ -408,34 +396,9 @@ body.dark-theme .card p {
     font-weight: 500;
 }
 
-/* Темная тема для советов */
-body.dark-theme .tips {
-    background-color: #121212; /* Очень темный фон */
-}
-
-body.dark-theme .tip-card {
-    background-color: #1e1e1e; /* Темный фон */
-    border: 1px solid #333; /* Темная граница */
-    color: #e0e0e0; /* Светлый текст */
-}
-
-body.dark-theme .tip-card:hover {
-    background-color: #2d2d2d; /* Ещё темнее при наведении */
-}
-
-body.dark-theme .tip-card span {
-    color: #e0e0e0; /* Светлый текст */
-}
-
-/* Улучшение видимости иконок в темной теме */
-body.dark-theme .tip-card img {
-    filter: brightness(1.5); /* Осветляем иконки */
-    transition: filter 0.3s ease;
-}
-
 /* Подвал */
 .footer {
-    background-color: #1e1e1e; /* Темный фон подвала */
+    background-color: #2C3E50;
     color: white;
     padding: 40px 0 20px;
 }
@@ -471,7 +434,7 @@ body.dark-theme .tip-card img {
 }
 
 .social-icons img {
-    filter: brightness(0) invert(1); /* Белые иконки */
+    filter: brightness(0) invert(1);
     transition: transform 0.3s ease;
 }
 
@@ -497,19 +460,14 @@ body.dark-theme .tip-card img {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
-    border: 1px solid #eee;
-    color: #2C3E50; /* Цвет текста */
+}
+
+body.dark-theme .calculator {
+    background: #2d2d2d;
 }
 
 .calculator:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* Темная тема для калькуляторов */
-body.dark-theme .calculator {
-    background: #1e1e1e; /* Темный фон */
-    border: 1px solid #333; /* Темная граница */
-    color: #e0e0e0; /* Светлый текст */
 }
 
 .form-group {
@@ -520,7 +478,6 @@ body.dark-theme .calculator {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: inherit; /* Наследует цвет от родителя */
 }
 
 .form-group input,
@@ -532,8 +489,6 @@ body.dark-theme .calculator {
     border-radius: 6px;
     font-size: 16px;
     transition: all 0.3s ease;
-    background-color: white;
-    color: #2C3E50;
 }
 
 .form-group input:focus,
@@ -544,22 +499,6 @@ body.dark-theme .calculator {
     box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
 }
 
-/* Темная тема для форм */
-body.dark-theme .form-group input,
-body.dark-theme .form-group select,
-body.dark-theme .form-group textarea {
-    background-color: #333; /* Темный фон поля */
-    border-color: #555; /* Темная граница */
-    color: #e0e0e0; /* Светлый текст */
-}
-
-body.dark-theme .form-group input:focus,
-body.dark-theme .form-group select:focus,
-body.dark-theme .form-group textarea:focus {
-    border-color: #6ab7ff;
-    box-shadow: 0 0 0 2px rgba(106, 183, 255, 0.3);
-}
-
 .result {
     margin-top: 20px;
     padding: 20px;
@@ -567,14 +506,11 @@ body.dark-theme .form-group textarea:focus {
     border-radius: 6px;
     border-left: 4px solid #4A90E2;
     animation: fadeIn 0.5s ease-out;
-    color: #2C3E50; /* Цвет текста */
 }
 
-/* Темная тема для результата */
 body.dark-theme .result {
-    background-color: #1e1e1e; /* Темный фон */
-    border-left-color: #6ab7ff; /* Голубая граница */
-    color: #e0e0e0; /* Светлый текст */
+    background-color: #333;
+    border-left-color: #6ab7ff;
 }
 
 .result p {
@@ -582,7 +518,7 @@ body.dark-theme .result {
 }
 
 .error {
-    color: #ff6b6b; /* Более яркий красный для ошибок */
+    color: #FF6B6B;
     font-weight: 500;
 }
 
@@ -590,12 +526,6 @@ body.dark-theme .result {
 .contact-content {
     max-width: 800px;
     margin: 0 auto;
-    color: #2C3E50; /* Цвет текста */
-}
-
-/* Темная тема для контактов */
-body.dark-theme .contact-content {
-    color: #e0e0e0; /* Светлый текст */
 }
 
 .contact-info ul {
@@ -608,20 +538,14 @@ body.dark-theme .contact-content {
     background-color: #f8f9fa;
     border-radius: 6px;
     transition: transform 0.3s ease;
-    border-left: 4px solid #4A90E2;
-    color: #2C3E50; /* Цвет текста */
+}
+
+body.dark-theme .contact-info li {
+    background-color: #333;
 }
 
 .contact-info li:hover {
     transform: translateX(10px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Темная тема для контактов */
-body.dark-theme .contact-content .contact-info li {
-    background-color: #1e1e1e; /* Темный фон */
-    border-left-color: #6ab7ff; /* Голубая граница */
-    color: #e0e0e0; /* Светлый текст */
 }
 
 .social-icons-large {
@@ -638,66 +562,20 @@ body.dark-theme .contact-content .contact-info li {
     text-align: center;
     color: #2C3E50;
     transition: all 0.3s ease;
-    padding: 15px;
-    border-radius: 10px;
-    text-decoration: none;
+}
+
+body.dark-theme .social-link {
+    color: #e0e0e0;
 }
 
 .social-link:hover {
-    background-color: #f8f9fa;
-    transform: translateY(-5px);
     text-decoration: none;
+    transform: translateY(-5px);
 }
 
 .social-link span {
     margin-top: 10px;
     font-weight: 500;
-}
-
-/* Темная тема для социальных ссылок */
-body.dark-theme .social-link {
-    color: #e0e0e0; /* Светлый текст */
-}
-
-body.dark-theme .social-link:hover {
-    background-color: #2d2d2d; /* Темнее при наведении */
-}
-
-/* Адаптивность для форм */
-@media (max-width: 768px) {
-    .form-row {
-        flex-direction: column;
-    }
-
-    .form-group {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    .calculator {
-        padding: 20px;
-    }
-
-    .btn-primary {
-        width: 100%;
-    }
-
-    /* Увеличение чекбоксов на мобильных */
-    input[type="checkbox"] {
-        transform: scale(1.5);
-        margin: 10px;
-    }
-}
-
-@media (min-width: 769px) {
-    .form-row {
-        display: flex;
-        gap: 20px;
-    }
-
-    .form-group {
-        flex: 1;
-    }
 }
 
 /* Адаптивность */
@@ -706,38 +584,38 @@ body.dark-theme .social-link:hover {
         flex-direction: column;
         gap: 15px;
     }
-
+    
     .nav {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
-
+    
     .nav a {
         margin: 5px 10px;
         font-size: 14px;
     }
-
+    
     h1 {
         font-size: 28px;
     }
-
+    
     h2 {
         font-size: 24px;
     }
-
+    
     .hero {
         padding: 50px 0;
     }
-
+    
     .cards {
         grid-template-columns: 1fr;
     }
-
+    
     .tip-card {
         padding: 15px;
     }
-
+    
     .header-actions {
         margin-top: 10px;
     }
@@ -747,24 +625,47 @@ body.dark-theme .social-link:hover {
     .container {
         padding: 0 15px;
     }
-
+    
     h1 {
         font-size: 24px;
     }
-
+    
     .hero {
         padding: 40px 0;
     }
-
+    
     .hero p {
         font-size: 16px;
     }
-
+    
     .social-icons-large {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
+}
+body.dark-theme .contact-content .contact-info li {
+    background-color: #333;
+    border: 1px solid #444;
+}
+
+body.dark-theme .contact-content .form-group input,
+body.dark-theme .contact-content .form-group select,
+body.dark-theme .contact-content .form-group textarea {
+    background-color: #333;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-theme .contact-content .form-group input:focus,
+body.dark-theme .contact-content .form-group select:focus,
+body.dark-theme .contact-content .form-group textarea:focus {
+    border-color: #6ab7ff;
+    box-shadow: 0 0 0 2px rgba(106, 183, 255, 0.3);
+}
+
+body.dark-theme .social-link {
+    color: #e0e0e0;
 }
 
 /* Исправление темного режима для страницы "О сайте" */
@@ -781,14 +682,56 @@ body.dark-theme .about-content .form-group textarea:focus {
     box-shadow: 0 0 0 2px rgba(106, 183, 255, 0.3);
 }
 
-/* Темная тема для форм обратной связи */
-body.dark-theme .feedback-form {
-    background-color: #1e1e1e; /* Темный фон */
-    border: 1px solid #333; /* Темная граница */
-    color: #e0e0e0; /* Светлый текст */
+body.dark-theme .idea-section {
+    background-color: #333;
+    border: 1px solid #444;
+}
+body.dark-theme .tips {
+    background-color: #2d2d2d;
 }
 
-/* Темная тема для селектов */
+body.dark-theme .tip-card {
+    background-color: #333;
+    border: 1px solid #444;
+}
+
+body.dark-theme .tip-card:hover {
+    background-color: #444;
+}
+body.dark-theme .hero {
+    background: linear-gradient(135deg, #2c5aa0 0%, #3a6bc7 100%);
+}
+
+body.dark-theme .tools {
+    background-color: #1a1a1a;
+}
+
+body.dark-theme .card {
+    border: 1px solid #444;
+}
+
+body.dark-theme .btn-primary {
+    background-color: #3a6bc7;
+}
+
+body.dark-theme .btn-primary:hover {
+    background-color: #2c5aa0;
+}
+
+body.dark-theme .btn-secondary {
+    background-color: #3d995f;
+}
+
+body.dark-theme .btn-secondary:hover {
+    background-color: #327d4e;
+}
+
+/* Формы в темном режиме */
+body.dark-theme .feedback-form {
+    background-color: #333;
+    border: 1px solid #444;
+}
+
 body.dark-theme select {
     background-color: #333;
     border-color: #555;
@@ -799,6 +742,17 @@ body.dark-theme select:focus {
     border-color: #6ab7ff;
     box-shadow: 0 0 0 2px rgba(106, 183, 255, 0.3);
 }
+@media (min-width: 768px) {
+    #capitalization {
+        transform: scale(1.3);
+        margin-right: 10px;
+    }
+    
+    .form-group input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+    }
+}
 
 /* Улучшенные стили для чекбоксов */
 .form-group input[type="checkbox"] {
@@ -806,7 +760,6 @@ body.dark-theme select:focus {
     height: 18px;
     cursor: pointer;
     margin-right: 8px;
-    accent-color: #4A90E2;
 }
 
 .form-group label[for="capitalization"] {
@@ -814,7 +767,6 @@ body.dark-theme select:focus {
     align-items: center;
     cursor: pointer;
     font-weight: normal;
-    color: inherit; /* Наследует цвет */
 }
 
 /* Адаптивность для чекбоксов */
@@ -824,14 +776,12 @@ body.dark-theme select:focus {
         padding: 10px 0;
     }
 }
-
 .checkbox-label {
     display: flex;
     align-items: center;
     cursor: pointer;
     font-weight: 500;
     margin-bottom: 0;
-    color: inherit; /* Наследует цвет */
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -846,238 +796,11 @@ body.dark-theme select:focus {
     user-select: none;
 }
 
-/* Темная тема для чекбоксов */
 body.dark-theme .checkbox-label {
-    color: #e0e0e0; /* Светлый текст */
+    color: #e0e0e0;
 }
 
 body.dark-theme .checkbox-label input[type="checkbox"] {
     background-color: #333;
     border-color: #555;
-}
-
-/* Анимации для результата */
-.result {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
-}
-
-.result.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.calculator-section {
-    opacity: 1;
-    transition: all 0.3s ease;
-}
-
-.calculator-section:hover {
-    transform: translateY(-5px);
-}
-
-/* Анимация для диаграммы */
-.chart-container {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: all 0.6s ease;
-}
-
-.chart-container.show {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* Секция подписки */
-.newsletter-section {
-    background-color: #f8f9fa;
-    padding: 25px;
-    border-radius: 10px;
-    margin-top: 30px;
-    text-align: center;
-    color: #2C3E50; /* Цвет текста */
-}
-
-/* Темная тема для секции подписки */
-body.dark-theme .newsletter-section {
-    background-color: #1e1e1e; /* Темный фон */
-    color: #e0e0e0; /* Светлый текст */
-}
-
-/* Стили для страницы "О сайте" */
-.about-content .testimonials {
-    background-color: #f8f9fa;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    margin: 30px 0;
-    color: #2C3E50; /* Цвет текста */
-}
-
-.about-content .idea-section {
-    background-color: #f8f9fa;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 30px;
-    color: #2C3E50; /* Цвет текста */
-}
-
-/* Темная тема для секций на странице "О сайте" */
-body.dark-theme .about-content .testimonials {
-    background-color: #1e1e1e; /* Темный фон */
-    color: #e0e0e0; /* Светлый текст */
-}
-
-body.dark-theme .about-content .idea-section {
-    background-color: #1e1e1e; /* Темный фон */
-    color: #e0e0e0; /* Светлый текст */
-}
-
-/* Исправление иконок социальных сетей в подвале */
-.footer .social-icons a {
-    display: inline-block;
-    margin: 0 10px;
-    transition: transform 0.3s ease;
-}
-
-.footer .social-icons img {
-    filter: brightness(0) invert(1);
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s ease;
-}
-
-.footer .social-icons a:hover {
-    transform: translateY(-3px);
-}
-
-.footer .social-icons img:hover {
-    transform: scale(1.1);
-}
-
-/* Мобильная навигация */
-@media (max-width: 768px) {
-    .header .container {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 10px 0;
-    }
-
-    .nav a {
-        margin: 5px;
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-
-    .logo {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-    .header-actions {
-        margin-top: 10px;
-    }
-
-    .feedback-btn {
-        padding: 6px 12px;
-        font-size: 13px;
-    }
-
-    .theme-toggle {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 480px) {
-    .nav a {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    .container {
-        padding: 0 10px;
-    }
-}
-
-/* Гамбургер-меню для мобильных */
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #2C3E50;
-}
-
-/* Темная тема для гамбургер-меню */
-body.dark-theme .mobile-menu-btn {
-    color: #e0e0e0; /* Светлый цвет иконки */
-}
-
-@media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: block;
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        z-index: 101;
-    }
-
-    .nav {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: white; /* Фон меню по умолчанию */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 100;
-    }
-
-    /* Темная тема для мобильного меню */
-    body.dark-theme .nav {
-        background-color: #1e1e1e; /* Темный фон для меню */
-    }
-
-    .nav.active {
-        display: flex;
-    }
-
-    .nav a {
-        margin: 15px 0;
-        font-size: 18px;
-        padding: 15px 30px;
-    }
-}
-
-/* Улучшение фокуса для чекбоксов и селектов в темной теме */
-body.dark-theme .form-group input[type="checkbox"]:focus {
-    box-shadow: 0 0 0 2px rgba(106, 183, 255, 0.5);
-}
-
-body.dark-theme select:focus {
-    box-shadow: 0 0 0 2px rgba(106, 183, 255, 0.5);
-}
-
-/* Убедимся, что текст внутри .card в темной теме читается */
-body.dark-theme .card {
-    color: #e0e0e0; /* Уже есть, но повторим для ясности */
 }
