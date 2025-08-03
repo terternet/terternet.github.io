@@ -1,4 +1,4 @@
-// Улучшенный калькулятор коммуналки с реальными тарифами
+// Калькулятор коммуналки
 function calculateUtility() {
     const electricity = parseFloat(document.getElementById('electricity').value) || 0;
     const water = parseFloat(document.getElementById('water').value) || 0;
@@ -160,7 +160,7 @@ function calculateBudget() {
     createBudgetChart([rent, food, transport, entertainment, utilities, other, savings]);
 }
 
-// Создание диаграммы для бюджета
+// Создание диаграммы для бюджета (исправленная версия)
 function createBudgetChart(data) {
     const ctx = document.getElementById('budgetChart');
     if (ctx) {
@@ -190,36 +190,23 @@ function createBudgetChart(data) {
                 responsive: true,
                 plugins: {
                     legend: {
-                        position: 'bottom',
-                        labels: {
-                            padding: 15,
-                            usePointStyle: true
-                        }
+                        position: 'bottom'
                     }
-                },
-                animation: {
-                    animateRotate: true,
-                    animateScale: true
                 }
             }
         });
     }
 }
 
-// Улучшенный калькулятор ИМТ с учетом пола и возраста
+// Калькулятор ИМТ
 function calculateBMI() {
     const gender = document.getElementById('gender').value;
     const age = parseInt(document.getElementById('age').value) || 0;
     const height = parseFloat(document.getElementById('height').value) || 0;
     const weight = parseFloat(document.getElementById('weight').value) || 0;
     
-    if (age < 18 || age > 100) {
-        document.getElementById('bmi-result').innerHTML = '<p class="error">Введите возраст от 18 до 100 лет</p>';
-        return;
-    }
-    
-    if (height <= 0 || weight <= 0) {
-        document.getElementById('bmi-result').innerHTML = '<p class="error">Введите корректные данные о росте и весе</p>';
+    if (age < 18 || age > 100 || height <= 0 || weight <= 0) {
+        document.getElementById('bmi-result').innerHTML = '<p class="error">Введите корректные данные (возраст 18-100 лет)</p>';
         return;
     }
     
@@ -249,37 +236,31 @@ function calculateBMI() {
         color = '#FF0000';
     }
     
-    // Дополнительные рекомендации с учетом возраста и пола
-    let personalizedAdvice = '';
+    // Дополнительные рекомендации с учетом возраста
+    let ageAdvice = '';
     if (age > 50) {
-        personalizedAdvice = '<p><strong>Для вашего возраста:</strong> Обратите внимание на костную плотность и мышечную массу.</p>';
+        ageAdvice = '<p><strong>Для вашего возраста:</strong> Обратите внимание на костную плотность и мышечную массу.</p>';
     } else if (age > 30) {
-        personalizedAdvice = '<p><strong>Для вашего возраста:</strong> Регулярные тренировки помогут сохранить форму.</p>';
-    }
-    
-    if (gender === 'female' && age > 40) {
-        personalizedAdvice += '<p><strong>Для женщин после 40:</strong> Уделите внимание гормональному балансу и профилактике остеопороза.</p>';
+        ageAdvice = '<p><strong>Для вашего возраста:</strong> Регулярные тренировки помогут сохранить форму.</p>';
     }
     
     document.getElementById('bmi-result').innerHTML = `
-        <div class="bmi-result-content">
-            <p><strong>ИМТ: <span style="color: ${color}">${bmi.toFixed(1)}</span></strong></p>
-            <p><strong>Категория: ${category}</strong></p>
-            <p>${advice}</p>
-            ${personalizedAdvice}
-            <div class="bmi-scale">
-                <h4>Шкала ИМТ:</h4>
-                <div class="scale-bar">
-                    <div class="scale-segment" style="background-color: #FF6B6B; width: 25%;">Недовес</div>
-                    <div class="scale-segment" style="background-color: #50C878; width: 30%;">Норма</div>
-                    <div class="scale-segment" style="background-color: #FFA500; width: 25%;">Избыток</div>
-                    <div class="scale-segment" style="background-color: #FF0000; width: 20%;">Ожирение</div>
-                </div>
-                <div class="scale-markers">
-                    <span>18.5</span>
-                    <span>25</span>
-                    <span>30</span>
-                </div>
+        <p><strong>ИМТ: <span style="color: ${color}">${bmi.toFixed(1)}</span></strong></p>
+        <p><strong>Категория: ${category}</strong></p>
+        <p>${advice}</p>
+        ${ageAdvice}
+        <div class="bmi-scale">
+            <h4>Шкала ИМТ:</h4>
+            <div class="scale-bar">
+                <div class="scale-segment" style="background-color: #FF6B6B; width: 25%;">Недовес</div>
+                <div class="scale-segment" style="background-color: #50C878; width: 30%;">Норма</div>
+                <div class="scale-segment" style="background-color: #FFA500; width: 25%;">Избыток</div>
+                <div class="scale-segment" style="background-color: #FF0000; width: 20%;">Ожирение</div>
+            </div>
+            <div class="scale-markers">
+                <span>18.5</span>
+                <span>25</span>
+                <span>30</span>
             </div>
         </div>
     `;
@@ -298,24 +279,9 @@ function calculateDiscount() {
     const discountAmount = (oldPrice * discountPercent) / 100;
     const newPrice = oldPrice - discountAmount;
     
-    // Экономия по сравнению с другими магазинами
-    const savingsVsStores = {
-        'ozon': discountAmount * 0.9,
-        'wildberries': discountAmount * 0.85,
-        'yandex': discountAmount * 0.95
-    };
-    
     document.getElementById('discount-result').innerHTML = `
         <p><strong>Новая цена: ${newPrice.toFixed(2)} руб</strong></p>
         <p>Вы экономите: ${discountAmount.toFixed(2)} руб (${discountPercent}%)</p>
-        <div class="savings-comparison">
-            <h4>Экономия по сравнению с другими магазинами:</h4>
-            <ul>
-                <li>Ozon: дополнительно ${savingsVsStores.ozon.toFixed(2)} руб</li>
-                <li>Wildberries: дополнительно ${savingsVsStores.wildberries.toFixed(2)} руб</li>
-                <li>Яндекс Маркет: дополнительно ${savingsVsStores.yandex.toFixed(2)} руб</li>
-            </ul>
-        </div>
     `;
 }
 
@@ -324,53 +290,35 @@ function calculateDeposit() {
     const amount = parseFloat(document.getElementById('depositAmount').value) || 0;
     const term = parseFloat(document.getElementById('depositTerm').value) || 0;
     const rate = parseFloat(document.getElementById('interestRate').value) || 0;
-    const capitalization = document.getElementById('capitalization').checked;
     
     if (amount <= 0 || term <= 0 || rate <= 0) {
         document.getElementById('deposit-result').innerHTML = '<p class="error">Введите корректные данные</p>';
         return;
     }
     
-    let result, profit;
-    
-    if (capitalization) {
-        // С капитализацией
-        const monthlyRate = (rate / 100) / 12;
-        result = amount * Math.pow(1 + monthlyRate, term);
-        profit = result - amount;
-    } else {
-        // Без капитализации
-        profit = (amount * rate * term) / 1200;
-        result = amount + profit;
-    }
-    
-    // Сравнение с другими банками
-    const bankRates = {
-        'sberbank': 7.5,
-        'vtb': 7.2,
-        'alfabank': 7.8,
-        'tinkoff': 8.0
-    };
-    
-    let comparisonHTML = '<h4>Сравнение с другими банками:</h4><ul>';
-    for (const [bank, bankRate] of Object.entries(bankRates)) {
-        const bankProfit = capitalization ? 
-            amount * Math.pow(1 + (bankRate / 100) / 12, term) - amount :
-            (amount * bankRate * term) / 1200;
-        comparisonHTML += `<li>${bank}: ${bankProfit.toFixed(2)} руб при ${bankRate}% годовых</li>`;
-    }
-    comparisonHTML += '</ul>';
+    // Расчет с ежемесячной капитализацией
+    const monthlyRate = (rate / 100) / 12;
+    const result = amount * Math.pow(1 + monthlyRate, term);
+    const profit = result - amount;
     
     document.getElementById('deposit-result').innerHTML = `
         <p><strong>Итоговая сумма: ${result.toFixed(2)} руб</strong></p>
         <p>Прибыль: ${profit.toFixed(2)} руб</p>
         <p>Срок: ${term} месяцев</p>
-        <p>Капитализация: ${capitalization ? 'Да' : 'Нет'}</p>
-        <div class="bank-comparison">
-            ${comparisonHTML}
-        </div>
     `;
 }
+
+// Валидация полей ввода
+document.addEventListener('DOMContentLoaded', function() {
+    const numberInputs = document.querySelectorAll('input[type="number"]');
+    numberInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            if (this.value < 0) {
+                this.value = 0;
+            }
+        });
+    });
+});
 
 // Валидация полей ввода
 document.addEventListener('DOMContentLoaded', function() {
