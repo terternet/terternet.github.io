@@ -12,22 +12,27 @@ document.addEventListener('DOMContentLoaded', function() {
             themeToggle.textContent = '☀️';
         }
     }
-    
     // Переключение темы
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            body.classList.toggle('dark-theme');
-            
-            // Сохраняем выбор в localStorage
-            if (body.classList.contains('dark-theme')) {
-                localStorage.setItem('theme', 'dark');
-                themeToggle.textContent = '☀️';
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeToggle.textContent = '🌙';
-            }
-        });
-    }
+    themeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-theme');
+        
+        // Сохраняем выбор в localStorage
+        if (body.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.textContent = '🌙';
+        }
+    });
+    
+    // Добавляем плавные переходы при загрузке страницы
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '1';
+    }, 100);
+});
     
     // Мобильное меню
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -73,3 +78,4 @@ function updateFooterLinks() {
         }
     }
 }
+
