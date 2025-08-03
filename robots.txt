@@ -1,8 +1,8 @@
 User-agent: *
-Disallow: /admin/
 Disallow: /private/
 Disallow: /tmp/
+Disallow: /admin/
 
-Sitemap: https://umnyapomoshch.netlify.app/sitemap.xml
+Sitemap: https://smarthelping.ru/sitemap.xml
 
-Host: umnyapomoshch.netlify.app
+Host: smarthelping.ru
