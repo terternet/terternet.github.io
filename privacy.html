@@ -10,6 +10,23 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" href="/images/favicon.png" sizes="32x32">
+     <!-- Varioqub (включает Яндекс.Метрику) -->
+    <script type="text/javascript">
+        (function(e, x, pe, r, i, me, nt){
+            e[i] = e[i] || function(){(e[i].a = e[i].a || []).push(arguments)};
+            me = x.createElement(pe);
+            me.async = 1;
+            me.src = r;
+            me.addEventListener('error', function(){
+                function cb(t){t = t[t.length-1]; 'function'==typeof t && t({flags:{}})}
+                Array.isArray(e[i].a) && e[i].a.forEach(cb);
+                e[i] = function(){cb(arguments)};
+            });
+            nt = x.getElementsByTagName(pe)[0];
+            nt.parentNode.insertBefore(me, nt);
+        })(window, document, 'script', 'https://abt.s3.yandex.net/expjs/latest/exp.js', 'ymab');
+        ymab('metrika.103569604', 'init');
+    </script>
 </head>
 <body>
     <header>
@@ -79,4 +96,5 @@
         </div>
     </footer>
 </body>
+
 </html>
